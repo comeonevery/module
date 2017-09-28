@@ -1,0 +1,7 @@
+﻿seajs:主要是解决冲突，依赖等问题。主要是用来维护的！
+jQuery主要是进行实际开发。
+seajs用法如下：
+	1.引入sea.js的库。
+	2.如何变成模块  -difine
+	3.如何调用模块 -exports,seajs.use
+	4.如何依赖模块  -require

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /**{
+            padding: 0;
+            margin: 0;
+        }*/
+        body{
+            box-sizing: border-box;
+            padding-left:50px;
+        }
+    </style>
+</head>
+<body>
+    seajs:主要是解决冲突，依赖等问题。主要是用来维护的！
+    <p></p>
+    jQuery主要是进行实际开发。
+    <p></p>
+    seajs用法如下：<p></p>
+        1.引入sea.js的库。<p></p>
+        2.如何变成模块  -difine<p></p>
+        3.如何调用模块 -exports,seajs.use<p></p>
+        4.如何依赖模块  -require<p></p>
+    <h1>seajs插件如下：</h1>
+    text,style,combo,flush,debug,log,health
+</body>
+<script src='sea.js'></script>
+<!--<script src='sea.js' id='seajsnode'></script>-->
+<!--//加id效果更佳-->
+<script>
+    //接受2个参数：
+    //第一个：模块地址
+    // sea的默认根目录就是sea.js这个文件
+    //第二参数：回掉函数，接受一个参数（可自己命名）,该参数为定义模块时暴露的exports对象；
+/*
+//变成cmd模块，define(function(require,exports,module){ 要写的代码    exports暴露对外接口}),
+//第一种写法：
+    seajs.use('./module1.js',function(ex){
+        console.log(ex);
+        ex.module1.shows();
+        ex.module1.alerts();
+    });
+    seajs.use('./module2',function(ex){
+        console.log(ex);
+        ex.module1.shows();
+        ex.module1.alerts();
+        ex.module1.alerta();
+        ex.module1.ab();
+    });
+
+    */
+
+
+    //第一种写法：
+    //'./module1.js','./module2.js'  ===> ex1,ex2 是一一对应的
+    seajs.use(['./module1.js','./module2.js'],function(ex1,ex2){
+        console.log(ex);
+
+    });
+</script>
+</html>

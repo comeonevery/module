@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .con{
+        width: 200px;
+        height: 200px;
+        background-color: #f00;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .inner{
+        width: 40px;
+        height: 40px;
+        /*cursor: pointer;*/
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: #f0f;
+    }
+    .drag{
+        width: 50px;
+        height: 50px;
+        background-color: #ff0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="inner"></div>
+    </div>
+    <div class="drag"></div>
+    <script>
+        var ocon = document.getElementsByClassName('con')[0];
+        var oinner = document.getElementsByClassName('inner')[0];
+        var downX = 0;
+        var downY = 0;
+        var downW = 0;
+        var downH = 0;
+        oinner.onmousedown =function(e){
+            var e = e || window.event;
+            downX = e.clientX;
+            downY = e.clientY;
+            downW = ocon.offsetWidth;
+            downH = ocon.offsetHeight;
+            document.onmousemove =function(e){
+                var e = e || window.event;
+                ocon.style.width = e.clientX -downX + downW + 'px';
+                ocon.style.height = e.clientY -downY + downH + 'px';
+            }
+            document.onmouseup =function(){
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+            return false;
+        }
+        var odrag =document.getElementsByClassName('drag')[0];
+        var disY = 0 ;
+        var disX = 0;
+        odrag.onmousedown =function(e){
+            var e = e || window.event;
+            disY = e.clientX - odrag.offsetLeft ;
+            disX = e.clientY - odrag.offsetTop;
+            document.onmousemove =function(e){
+                var e = e || window.event;
+                console.log(132);
+                odrag.style.left = e.clientX -disX + 'px';
+                odrag.style.top = e.clientY -disY + 'px';
+            }
+             document.onmouseup =function(){
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

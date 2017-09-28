@@ -1,0 +1,1 @@
+define(function(a,b,c){function d(){alert("shows1")}function e(){alert("alerts1")}b.module1={alerts:e,shows:d}}),define(function(a,b,c){function d(){alert("shows2")}function e(){alert("alerts2")}function f(){alert(g.ak.a)}var g=a("./module3");b.module1={alerts:e,shows:d,alerta:f,ab:g.ak.aa}}),define(function(a,b,c){function d(){alert(10110)}var e=100;b.ak={a:e,aa:d}});
